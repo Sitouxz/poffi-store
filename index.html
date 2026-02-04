@@ -1,470 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Poffi Store - Kado Spesial untuk Orang Favoritmu</title>
-    <meta name="description"
-        content="Temukan bingkai estetis dan set hadiah eksklusif yang dibuat dengan cinta. Sempurna untuk setiap momen spesial.">
-
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap"
-        rel="stylesheet">
-
+        rel="stylesheet" />
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5a4c3a",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#1b1917",
+                        "cream-warm": "#F4EFE6",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
     <style>
-        /* Page-specific styles for Homepage */
-        .hero {
-            padding: var(--space-8) 0;
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        @media (min-width: 768px) {
-            .hero {
-                padding: var(--space-16) 0;
-            }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
 
-        .hero-inner {
-            display: flex;
-            flex-direction: column-reverse;
-            gap: var(--space-8);
-            align-items: center;
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
         }
 
-        @media (min-width: 1024px) {
-            .hero-inner {
-                flex-direction: row;
-                gap: var(--space-16);
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
         }
 
-        .hero-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-6);
-            max-width: 640px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-1) var(--space-3);
-            background-color: var(--color-primary-light);
-            color: var(--color-primary);
-            font-size: var(--text-xs);
-            font-weight: var(--font-bold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: var(--radius-full);
-            width: fit-content;
-        }
-
-        .hero-title {
-            font-size: var(--text-4xl);
-            font-weight: var(--font-black);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        @media (min-width: 640px) {
-            .hero-title {
-                font-size: var(--text-5xl);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: var(--text-6xl);
-            }
-        }
-
-        .hero-title .highlight {
-            color: var(--color-primary);
-            font-style: italic;
-        }
-
-        .hero-subtitle {
-            font-size: var(--text-lg);
-            color: var(--color-text-muted);
-            max-width: 480px;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: var(--space-4);
-            flex-wrap: wrap;
-            padding-top: var(--space-4);
-        }
-
-        .hero-buttons .btn {
-            height: 3rem;
-            padding: 0 var(--space-8);
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: var(--space-6);
-            margin-top: var(--space-4);
-            flex-wrap: wrap;
-        }
-
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            font-size: var(--text-sm);
-            font-weight: var(--font-semibold);
-            color: var(--color-text-muted);
-        }
-
-        .trust-badge .material-symbols-outlined {
-            color: var(--color-primary);
-            font-size: 20px;
-        }
-
-        .hero-image {
-            position: relative;
-            width: 100%;
-            flex: 1;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (min-width: 1024px) {
-            .hero-image {
-                aspect-ratio: 4/3;
-            }
-        }
-
-        .hero-image-bg {
-            position: absolute;
-            inset: 0;
-            background-color: var(--color-surface-light);
-            border-radius: 50%;
-            filter: blur(48px);
-            opacity: 0.4;
-            transform: scale(0.9) translateY(16px);
-        }
-
-        .hero-image-main {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-floating-badge {
-            position: absolute;
-            bottom: -24px;
-            left: -16px;
-            background-color: white;
-            padding: var(--space-4);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--space-3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @media (min-width: 768px) {
-            .hero-floating-badge {
-                bottom: 32px;
-                left: -32px;
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .hero-floating-badge-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-full);
-            background-color: #dcfce7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #15803d;
-        }
-
-        /* Journal Teaser */
-        .journal-teaser {
-            background-color: var(--color-surface-light);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-8);
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .journal-teaser {
-                padding: var(--space-12);
-            }
-        }
-
-        .journal-teaser-inner {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-10);
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .journal-teaser-inner {
-                flex-direction: row;
-            }
-        }
-
-        .journal-teaser-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-6);
-        }
-
-        .journal-teaser-image {
-            flex: 1;
-            width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: var(--radius-xl);
-            background-size: cover;
-            background-position: center;
-            box-shadow: var(--shadow-lg);
-            transform: rotate(2deg);
-            transition: transform var(--transition-slow);
-        }
-
-        .journal-teaser-image:hover {
-            transform: rotate(0);
-        }
-
-        .journal-teaser-blob {
-            position: absolute;
-            width: 256px;
-            height: 256px;
-            border-radius: 50%;
-            filter: blur(48px);
-            opacity: 0.2;
-        }
-
-        .journal-teaser-blob-1 {
-            right: -80px;
-            top: -80px;
-            background-color: var(--color-primary);
-        }
-
-        .journal-teaser-blob-2 {
-            left: -80px;
-            bottom: -80px;
-            background-color: #fde68a;
+        /* Soften the material icons slightly */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
 </head>
 
-<body>
-    <div id="app-header"></div>
+<body
+    class="bg-cream-warm dark:bg-background-dark font-display text-stone-900 dark:text-stone-100 antialiased overflow-x-hidden transition-colors duration-300">
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- Shared Header (loaded via JS) -->
+        <header id="shared-header"></header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-inner">
-                    <!-- Text Content -->
-                    <div class="hero-content">
-                        <div class="hero-badge">
-                            <span>✨ New Collection 2024</span>
-                        </div>
-                        <h1 class="hero-title">
-                            Kado Spesial untuk <br><span class="highlight">Orang Favoritmu.</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            Temukan bingkai estetis dan set hadiah eksklusif yang dibuat dengan cinta. Sempurna untuk
-                            setiap momen spesial.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="products.html" class="btn btn-primary">Lihat Katalog Sekarang</a>
-                            <a href="#" class="btn btn-secondary">Custom Order</a>
-                        </div>
-                        <div class="trust-badges">
-                            <div class="trust-badge">
-                                <span class="material-symbols-outlined">local_shipping</span>
-                                <span>Fast Shipping</span>
+        <main class="flex-1 flex flex-col items-center w-full">
+            <!-- Hero Section -->
+            <div class="w-full max-w-[1440px] px-4 md:px-10 py-8 md:py-16">
+                <div class="@container">
+                    <div class="flex flex-col-reverse lg:flex-row gap-8 lg:gap-16 items-center">
+                        <!-- Text Content -->
+                        <div class="flex flex-col gap-6 flex-1 items-start text-left max-w-2xl">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-amber-100 dark:bg-primary/30 text-xs font-bold uppercase tracking-wider">
+                                <span>✨ New Collection 2024</span>
                             </div>
-                            <div class="trust-badge">
-                                <span class="material-symbols-outlined">volunteer_activism</span>
-                                <span>Handmade with Love</span>
+                            <h1
+                                class="text-stone-900 dark:text-white text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                                Kado Spesial untuk <br /><span class="text-primary italic">Orang Favoritmu.</span>
+                            </h1>
+                            <h2 class="text-stone-600 dark:text-stone-300 text-lg font-medium leading-relaxed max-w-lg">
+                                Temukan bingkai estetis dan set hadiah eksklusif yang dibuat dengan cinta. Sempurna
+                                untuk setiap momen spesial.
+                            </h2>
+                            <div class="flex gap-4 pt-4">
+                                <a href="products.html"
+                                    class="flex items-center justify-center rounded-xl h-12 px-8 bg-primary hover:bg-[#4a3e30] transition-colors text-white text-base font-bold shadow-lg shadow-primary/20">
+                                    <span>Lihat Katalog Sekarang</span>
+                                </a>
+                                <button
+                                    class="flex items-center justify-center rounded-xl h-12 px-6 bg-white dark:bg-stone-800 text-stone-900 dark:text-white text-base font-bold shadow-sm ring-1 ring-stone-200 dark:ring-stone-700 hover:bg-stone-50 dark:hover:bg-stone-700 transition-colors">
+                                    <span>Custom Order</span>
+                                </button>
+                            </div>
+                            <!-- Trust badges -->
+                            <div
+                                class="flex items-center gap-6 mt-4 text-sm font-semibold text-stone-500 dark:text-stone-400">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+                                    <span>Fast Shipping</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-[20px]">volunteer_activism</span>
+                                    <span>Handmade with Love</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Hero Image -->
-                    <div class="hero-image">
-                        <div class="hero-image-bg"></div>
-                        <div class="hero-image-main"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDflAakVTQ2kpU4QN6D195Pxok6AJUOLJNSs9fFKV1sx3QRwOCif7p1TXi5sUOxHD2dKVwIk6_f6lUW_kUBIoo4PSYDrVABwWqzFRw2hZc-o95ofFlJhYPTJPJc4pstOyAE2W1w7KnHZ1KtNpB3LUwyNrF8tTRhd3LkKo1K5UkkX6H7y_79jUUCj5WNH5_Vbz0j3JQJWB_b-8ohNTd7GDBioJypaARuSbdM0mqSFOid1k4nqaayRQV1JuFQm9b_ah6Nj2Q3YULlzjE');">
-                        </div>
-                        <div class="hero-floating-badge">
-                            <div class="hero-floating-badge-icon">
-                                <span class="material-symbols-outlined">eco</span>
+                        <!-- Hero Image with Blobs -->
+                        <div
+                            class="relative w-full lg:w-1/2 aspect-square lg:aspect-[4/3] flex items-center justify-center">
+                            <!-- Background decoration -->
+                            <div
+                                class="absolute inset-0 bg-stone-200 dark:bg-stone-800 rounded-full blur-3xl opacity-40 scale-90 translate-y-4">
                             </div>
-                            <div>
-                                <p
-                                    style="font-size: var(--text-xs); color: var(--color-text-muted); font-weight: var(--font-medium);">
-                                    Material</p>
-                                <p style="font-size: var(--text-sm); font-weight: var(--font-bold);">Eco-Friendly</p>
+                            <div class="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-xl ring-4 ring-white dark:ring-stone-700 bg-stone-100"
+                                data-alt="A warm, earthy toned arrangement of gift boxes and dried flowers"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDflAakVTQ2kpU4QN6D195Pxok6AJUOLJNSs9fFKV1sx3QRwOCif7p1TXi5sUOxHD2dKVwIk6_f6lUW_kUBIoo4PSYDrVABwWqzFRw2hZc-o95ofFlJhYPTJPJc4pstOyAE2W1w7KnHZ1KtNpB3LUwyNrF8tTRhd3LkKo1K5UkkX6H7y_79jUUCj5WNH5_Vbz0j3JQJWB_b-8ohNTd7GDBioJypaARuSbdM0mqSFOid1k4nqaayRQV1JuFQm9b_ah6Nj2Q3YULlzjE"); background-size: cover; background-position: center;'>
+                            </div>
+                            <!-- Floating badge -->
+                            <div class="absolute -bottom-6 -left-4 md:bottom-8 md:-left-8 bg-white dark:bg-stone-800 p-4 rounded-2xl shadow-lg flex items-center gap-3 animate-bounce"
+                                style="animation-duration: 3s;">
+                                <div
+                                    class="size-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-700 dark:text-green-400">
+                                    <span class="material-symbols-outlined">eco</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-500 dark:text-stone-400 font-medium">Material</p>
+                                    <p class="text-sm font-bold text-stone-900 dark:text-white">Eco-Friendly</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- New Arrivals Section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
+            <!-- New Arrivals Section -->
+            <section class="w-full max-w-[1440px] px-4 md:px-10 py-12">
+                <div class="flex flex-col md:flex-row items-end justify-between mb-8 gap-4">
                     <div>
-                        <span class="section-label">Fresh Drops</span>
-                        <h2 class="section-title">New Arrivals</h2>
+                        <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">Fresh
+                            Drops</span>
+                        <h2 class="text-stone-900 dark:text-white text-3xl font-bold">New Arrivals</h2>
                     </div>
-                    <a href="products.html" class="section-link">
+                    <a class="text-stone-600 dark:text-stone-400 font-semibold flex items-center gap-1 hover:text-primary transition-colors"
+                        href="products.html">
                         View all products
-                        <span class="material-symbols-outlined" style="font-size: 20px;">arrow_forward</span>
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                     </a>
                 </div>
-
-                <div class="grid grid-3">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Product Card 1 -->
-                    <a href="product.html" class="card">
-                        <div class="card-image">
-                            <div class="bg-image"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABgR-rgLV3oI2GDxrAhfp_mZtkhPsSRoV9_xK7jWPLIBxqmjrP45nbKJO9PYJgLCGj3rnb3v_KqDkqozcQiBeJLrlgY3qoifmE3Pg4fgU02hSvrb58vD5eeObZquxxtC5bgjdVwfCBkczSVc_uSUVzWTB_89Ur5BrQGlTSAQc5gtgw3gIaGh4rwlZM74xRo34Gxco0EJQAlma3srSUCm-Gld6OnQLB4H0QuGaN21vglJtG_aKnau9B9aZuFVAsYlFquZYARH4SibQ');">
+                    <a href="product-detail.html"
+                        class="group flex flex-col bg-white dark:bg-stone-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Dreamy Hamper Set with pastel colors and ribbons"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABgR-rgLV3oI2GDxrAhfp_mZtkhPsSRoV9_xK7jWPLIBxqmjrP45nbKJO9PYJgLCGj3rnb3v_KqDkqozcQiBeJLrlgY3qoifmE3Pg4fgU02hSvrb58vD5eeObZquxxtC5bgjdVwfCBkczSVc_uSUVzWTB_89Ur5BrQGlTSAQc5gtgw3gIaGh4rwlZM74xRo34Gxco0EJQAlma3srSUCm-Gld6OnQLB4H0QuGaN21vglJtG_aKnau9B9aZuFVAsYlFquZYARH4SibQ");'>
                             </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 backdrop-blur rounded-full text-stone-400 hover:text-red-500 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
                         </div>
-                        <div class="card-body">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <h3 class="card-title">Dreamy Hamper Set</h3>
-                                <span class="badge badge-secondary">NEW</span>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-stone-900 dark:text-white">Dreamy Hamper Set</h3>
+                                <div class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded-md">NEW</div>
                             </div>
-                            <p class="card-description">A curated collection of soft pastels and sweet treats for the
-                                dreamer.</p>
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="card-price">Rp 450.000</span>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mb-4 line-clamp-2">A curated collection
+                                of soft pastels and sweet treats for the dreamer.</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <span class="text-lg font-bold text-stone-900 dark:text-white">Rp 450.000</span>
+                                <button
+                                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary text-white shadow-md hover:bg-[#4a3e30] transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                </button>
                             </div>
                         </div>
                     </a>
-
                     <!-- Product Card 2 -->
-                    <a href="product.html" class="card">
-                        <div class="card-image">
-                            <div class="bg-image"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5vqF_JzZqUpGHkUM24kyeRujiY6ol1-REL-F_C3-25fSwIlSfp9cB_ibG05Nzs07WzYJyXWFiX_GWPo0o7NwwUqzj_ZjRyOYGg8y284eU3EeDKDI-bLCxmFkXAg-tOGeVvgLgJCswlHfcXsHsT79ISwlUnnfX7adqkhLc5oQUj956CYlLZdVsUCB2cKMghJqNB9gn3kYSUL33E-DGEKzZBwKdPzwvKw2kZTjHiF8TGOl-84SCEtCYW88XZYK2XZdOCRKKIXcU6uA');">
+                    <a href="product-detail.html"
+                        class="group flex flex-col bg-white dark:bg-stone-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Minimalist wooden floating frame with botanical art"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5vqF_JzZqUpGHkUM24kyeRujiY6ol1-REL-F_C3-25fSwIlSfp9cB_ibG05Nzs07WzYJyXWFiX_GWPo0o7NwwUqzj_ZjRyOYGg8y284eU3EeDKDI-bLCxmFkXAg-tOGeVvgLgJCswlHfcXsHsT79ISwlUnnfX7adqkhLc5oQUj956CYlLZdVsUCB2cKMghJqNB9gn3kYSUL33E-DGEKzZBwKdPzwvKw2kZTjHiF8TGOl-84SCEtCYW88XZYK2XZdOCRKKIXcU6uA");'>
                             </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 backdrop-blur rounded-full text-stone-400 hover:text-red-500 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Minimalist Frame</h3>
-                            <p class="card-description">Solid oak wood frame with crystal clear glass. Perfect for
-                                memories.</p>
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="card-price">Rp 120.000</span>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2">Minimalist Frame</h3>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mb-4 line-clamp-2">Solid oak wood frame
+                                with crystal clear glass. Perfect for memories.</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <span class="text-lg font-bold text-stone-900 dark:text-white">Rp 120.000</span>
+                                <button
+                                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary text-white shadow-md hover:bg-[#4a3e30] transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                </button>
                             </div>
                         </div>
                     </a>
-
                     <!-- Product Card 3 -->
-                    <a href="product.html" class="card">
-                        <div class="card-image">
-                            <div class="bg-image"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUdn9NgmFGZjr0M0iKgSY3xRwMzKgam5wBP012D8QTnobXhKgTgsPNr0gI2fQgJlSUxrqXmrvG_2v7SCoZc1vLQCKEbS5Vvv3LQQLvg6hMbS5GHlQqc696oerc68i75o8y1QfVmAFLwMtM7Ypwd6d0LrUjPnM4zW2rKMrcwdEjq-Jv-HXuqweJne31Tg-7IqfCh2Q6wq8FIKdyLmasjWEv20GJmdnUow1SEmoKPwSCiasFPgLGzY99Bssm2wHJxDNcG8Qe-c5579Q');">
+                    <a href="product-detail.html"
+                        class="group flex flex-col bg-white dark:bg-stone-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                                data-alt="A set of aromatic soy candles in glass jars"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCUdn9NgmFGZjr0M0iKgSY3xRwMzKgam5wBP012D8QTnobXhKgTgsPNr0gI2fQgJlSUxrqXmrvG_2v7SCoZc1vLQCKEbS5Vvv3LQQLvg6hMbS5GHlQqc696oerc68i75o8y1QfVmAFLwMtM7Ypwd6d0LrUjPnM4zW2rKMrcwdEjq-Jv-HXuqweJne31Tg-7IqfCh2Q6wq8FIKdyLmasjWEv20GJmdnUow1SEmoKPwSCiasFPgLGzY99Bssm2wHJxDNcG8Qe-c5579Q");'>
                             </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 backdrop-blur rounded-full text-stone-400 hover:text-red-500 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Scented Candle Bundle</h3>
-                            <p class="card-description">Three signature scents to warm up your living space.</p>
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                                <span class="card-price">Rp 285.000</span>
+                        <div class="p-5 flex flex-col flex-1">
+                            <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2">Scented Candle Bundle</h3>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mb-4 line-clamp-2">Three signature
+                                scents to warm up your living space.</p>
+                            <div class="mt-auto flex items-center justify-between">
+                                <span class="text-lg font-bold text-stone-900 dark:text-white">Rp 285.000</span>
+                                <button
+                                    class="flex items-center justify-center w-10 h-10 rounded-xl bg-primary text-white shadow-md hover:bg-[#4a3e30] transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+                                </button>
                             </div>
                         </div>
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Journal Teaser Section -->
-        <section class="section">
-            <div class="container">
-                <div class="journal-teaser">
-                    <div class="journal-teaser-blob journal-teaser-blob-1"></div>
-                    <div class="journal-teaser-blob journal-teaser-blob-2"></div>
-
-                    <div class="journal-teaser-inner">
-                        <div class="journal-teaser-content">
-                            <div class="hero-badge" style="background-color: rgba(255,255,255,0.5);">
+            </section>
+            <!-- Poffi Journal Teaser -->
+            <section class="w-full max-w-[1440px] px-4 md:px-10 py-16">
+                <div class="bg-stone-200 dark:bg-stone-800 rounded-[2.5rem] p-8 md:p-12 overflow-hidden relative">
+                    <!-- Decorative blob -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-amber-200/20 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 flex flex-col lg:flex-row gap-10 items-center">
+                        <div class="flex-1 space-y-6">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 dark:bg-black/30 text-stone-600 dark:text-stone-300 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
                                 <span>📖 The Poffi Journal</span>
                             </div>
-                            <h2 style="font-size: var(--text-3xl); font-weight: var(--font-black); line-height: 1.2;">
-                                Tips Membungkus Kado <br>Estetik &amp; Ramah Lingkungan
+                            <h2 class="text-3xl md:text-4xl font-black text-stone-900 dark:text-white leading-tight">
+                                Tips Membungkus Kado <br />Estetik &amp; Ramah Lingkungan
                             </h2>
-                            <p style="font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.7;">
+                            <p class="text-stone-600 dark:text-stone-300 text-lg leading-relaxed">
                                 Pelajari cara membuat bungkusan kado yang cantik menggunakan bahan daur ulang dan teknik
                                 furoshiki sederhana.
                             </p>
-                            <a href="journal.html" class="section-link"
-                                style="color: var(--color-primary); font-weight: var(--font-bold);">
+                            <a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
+                                href="journal.html">
                                 Baca Artikel Lengkap
                                 <span class="material-symbols-outlined">arrow_right_alt</span>
                             </a>
                         </div>
-                        <div class="journal-teaser-image"
-                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3tNXbqnATMRYCl2oxf_9ymGzIykO031Y8S-okM314sBpPSDu8JHsQEzu-BUZ1RO5tRw1GF6Fm0ZxuFIxJLTEI9D3MfnIaIgvouHNqncemeE8A_oVa-lYyUfiqlzwLopWnW6GNmbjnQeChmnzLL25RL3QCqDR_bHoRy1LXF5j9iuvXkXmKSyJ1LGMPDY_Tos7oVSGE2wuiEXDrQpdQiukGcVI45fr7OSc0PW7SkbdEMuU6GIsKKHZAXFTT41eKzAeLyZJTikSczYY');">
+                        <div class="flex-1 w-full">
+                            <div class="aspect-video w-full rounded-2xl bg-cover bg-center shadow-lg transform rotate-2 hover:rotate-0 transition-transform duration-500"
+                                data-alt="Overhead shot of hands wrapping a gift with brown paper and twine"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3tNXbqnATMRYCl2oxf_9ymGzIykO031Y8S-okM314sBpPSDu8JHsQEzu-BUZ1RO5tRw1GF6Fm0ZxuFIxJLTEI9D3MfnIaIgvouHNqncemeE8A_oVa-lYyUfiqlzwLopWnW6GNmbjnQeChmnzLL25RL3QCqDR_bHoRy1LXF5j9iuvXkXmKSyJ1LGMPDY_Tos7oVSGE2wuiEXDrQpdQiukGcVI45fr7OSc0PW7SkbdEMuU6GIsKKHZAXFTT41eKzAeLyZJTikSczYY");'>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <div id="app-footer"></div>
+        <!-- Shared Footer (loaded via JS) -->
+        <footer id="shared-footer"></footer>
+    </div>
 
-    <script src="layout.js"></script>
-    <script>
-        injectHeader();
-        injectFooter();
-    </script>
+    <!-- Shared Components -->
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
 </body>
 
 </html>
