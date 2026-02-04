@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Poffi Store - Natural Earth Hamper Deluxe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee992b",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#181511] font-display overflow-x-hidden min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6e2de] dark:border-[#3a342e] bg-white dark:bg-[#1a140e] px-10 py-3 sticky top-0 z-50">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-[#181511] dark:text-white">
+                <div class="size-8 text-primary">
+                    <span class="material-symbols-outlined !text-[32px]">redeem</span>
+                </div>
+                <h2 class="text-[#181511] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Poffi
+                    Store</h2>
+            </div>
+            <div class="flex items-center gap-9 hidden md:flex">
+                <a class="text-[#181511] dark:text-[#d0caca] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">Shop</a>
+                <a class="text-[#181511] dark:text-[#d0caca] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">Collections</a>
+                <a class="text-[#181511] dark:text-[#d0caca] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">About Us</a>
+                <a class="text-[#181511] dark:text-[#d0caca] text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">Contact</a>
+            </div>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+            <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+                <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                    <div
+                        class="text-[#897861] flex border-none bg-[#f4f3f0] dark:bg-[#2c241b] items-center justify-center pl-4 rounded-l-lg border-r-0">
+                        <span class="material-symbols-outlined text-[24px]">search</span>
+                    </div>
+                    <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181511] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f4f3f0] dark:bg-[#2c241b] focus:border-none h-full placeholder:text-[#897861] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                        placeholder="Search" value="" />
+                </div>
+            </label>
+            <div class="flex gap-2">
+                <button
+                    class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f4f3f0] dark:bg-[#2c241b] text-[#181511] dark:text-white hover:bg-[#e9e7e4] dark:hover:bg-[#3d3226] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                </button>
+                <button
+                    class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f4f3f0] dark:bg-[#2c241b] text-[#181511] dark:text-white hover:bg-[#e9e7e4] dark:hover:bg-[#3d3226] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">person</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="layout-container flex h-full grow flex-col">
+        <div class="px-5 md:px-40 flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                <!-- Breadcrumbs -->
+                <div class="flex flex-wrap gap-2 px-4 py-4">
+                    <a class="text-[#897861] dark:text-[#a69680] text-sm font-medium leading-normal hover:underline"
+                        href="#">Home</a>
+                    <span class="text-[#897861] dark:text-[#a69680] text-sm font-medium leading-normal">/</span>
+                    <a class="text-[#897861] dark:text-[#a69680] text-sm font-medium leading-normal hover:underline"
+                        href="#">Shop</a>
+                    <span class="text-[#897861] dark:text-[#a69680] text-sm font-medium leading-normal">/</span>
+                    <span class="text-[#181511] dark:text-white text-sm font-medium leading-normal">Natural Earth Hamper
+                        Deluxe</span>
+                </div>
+                <!-- Product Detail Section -->
+                <div class="flex flex-col lg:flex-row gap-12 px-4 pt-4 pb-12">
+                    <!-- Left Column: Images -->
+                    <div class="flex flex-col gap-4 flex-1 lg:max-w-[600px]">
+                        <!-- Main Image -->
+                        <div
+                            class="w-full aspect-[4/3] bg-gray-100 dark:bg-[#2c241b] rounded-xl overflow-hidden relative group cursor-zoom-in">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                                data-alt="Luxurious earth-toned gift hamper with natural products"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiLgdyu5vEqYoRpl0B2qmOEbyXgoy-MQiCwdMN965GoUH474ryFuMbJj2cRuOITnC1mz1tQdINKgRCJf8hg3-cN2gqA0JXMqN8JVjt5rdzhYowxzeV7wf49jzPltkFe0LT3u9AtfwrBuA6IkEXBWcBlHr6iYwtDzLeJbTKTJPonOTOt87isXDOfE_acZsDNZboz3RFGytA5-8dAjSA-h9jFf4d-y1YFU8G4CWOP8uczpwIhTxaMAuEQx9SxMaxxG9RK01rIygu93Q");'>
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Best Seller
+                            </div>
+                        </div>
+                        <!-- Image Grid (Thumbnails) -->
+                        <div class="grid grid-cols-4 gap-3">
+                            <button
+                                class="relative aspect-square rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary/20 ring-offset-2 dark:ring-offset-[#221a10]">
+                                <div class="w-full h-full bg-center bg-no-repeat bg-cover"
+                                    data-alt="Front view of deluxe hamper"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhf5S3e1XRTKfVo3M0FrZzmEf155MuOwFOv3zAVl-0kE9LkZ8dr1pbaVYMSi3C02-VFLLENSrIWkyeq3QyHlkj3fq6nTAOnPNEEq0YQikSKdqUKm6te9tn8nkxYtGUcrbtz7sSyvfAWKk5D1qZlcHATcF3wa63egbwchgCFLVctUJJfhST-RaMdHaI_Ma9t6y4gCApNBvl7wY93eqtLiPCfpKgkGFmNor-q2LhG2TwkvwteeOt9adSSnT7H9SYZeRwQGZi9uX9A1s");'>
+                                </div>
+                            </button>
+                            <button
+                                class="relative aspect-square rounded-lg overflow-hidden border border-transparent hover:border-[#e6e2de] dark:hover:border-[#3a342e]">
+                                <div class="w-full h-full bg-center bg-no-repeat bg-cover"
+                                    data-alt="Close up of handmade soap and candles"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZQpERH84t7AARJ12HqiDZxxqEHKDkrl8r1_e6nimn9xmnJ6-uZbho37aMabNaBJfwNNN-DP8SQQAjekJNzpOMkyUqBIkxGJYsgQyzIQzx9cTjaFAqSaeQ6Ci1H5KTpsGd6wm6hZOKfAy0JBHxrA-MMMgVBtUuGIhDaYzH8WRxKedBPTAobd3cD3EnsPzHKZKTSso84_nZ3oXmMd-xWroJ_z5mR8YHP8SC7PtdslC3sO-R_DxWY26xgoF38xYeB7ZMnACIGdArVVY");'>
+                                </div>
+                            </button>
+                            <button
+                                class="relative aspect-square rounded-lg overflow-hidden border border-transparent hover:border-[#e6e2de] dark:hover:border-[#3a342e]">
+                                <div class="w-full h-full bg-center bg-no-repeat bg-cover"
+                                    data-alt="Details of woven basket texture"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZbDgieN4Yj5ktFfF_DoLbmDtp5-TvNnsPqJ9OI840BGf3MPxjsOPz_RvCoeCR0UUsLztrE9sHnvVsIxZBQNEwyqNjGAuT4u1AZATGWcshIOqopckBhGKGg1bLNNniT9PwhQRXMyz8J1-lNqTmz46_scSHzaTxPQKPQAJkG_qtsB3GV8Z0C741YNs0iMM4Vl7asUIktsrBOMgqnx6ltBy92OR8DWtUPqzmnru5QsUkTC4-Qh9KAGsrJFIog1mnytceh89a4Hk0zWM");'>
+                                </div>
+                            </button>
+                            <button
+                                class="relative aspect-square rounded-lg overflow-hidden border border-transparent hover:border-[#e6e2de] dark:hover:border-[#3a342e]">
+                                <div class="w-full h-full bg-center bg-no-repeat bg-cover"
+                                    data-alt="Top view of neatly arranged gift items"
+                                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcwIyKtstyDSowM3-meawlpPazEl2heSRl0unIE8xzgVzFhBDde2_FeTTgDb1g3Meie40lLFawe5pbn5KYa2x2FbEo_M-TMuNkS1Zn14KXi66ftFc_bzk60BFMvpMPJYH_b_CoV021n8a1zRY8HX8azwthIfgg-f3SKwsp64RdUq-h01T9GOxz1M9gZW2BOMDS5N9BB7czxySlNX17tEkLgr9hLMg0dv6fyvrnQOBh2rj-POEuQhur4pWdgWhNhpva2ZECBIigf6w");'>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right Column: Details -->
+                    <div class="flex flex-col flex-1 gap-6">
+                        <div>
+                            <h1
+                                class="text-[#181511] dark:text-white tracking-tight text-3xl md:text-4xl font-bold leading-tight pb-2">
+                                Natural Earth Hamper Deluxe</h1>
+                            <div class="flex items-center gap-4">
+                                <h2
+                                    class="text-[#181511] dark:text-white text-2xl font-bold leading-tight tracking-[-0.015em]">
+                                    Rp 450.000</h2>
+                                <span
+                                    class="px-2 py-1 bg-[#f0eee6] dark:bg-[#332a21] text-[#897861] dark:text-[#bfb4a6] text-xs font-semibold rounded uppercase tracking-wide">In
+                                    Stock</span>
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        <div class="prose prose-stone dark:prose-invert max-w-none">
+                            <p class="text-[#4f4a45] dark:text-[#d0caca] leading-relaxed">
+                                Curated for the nature lover, this deluxe hamper brings the soothing essence of the
+                                earth straight to your doorstep. Includes hand-poured soy candles, organic artisan soap,
+                                and a reusable hand-woven rattan basket. Perfect for birthdays, housewarmings, or just
+                                because.
+                            </p>
+                        </div>
+                        <div class="h-px bg-[#e6e2de] dark:bg-[#3a342e] w-full"></div>
+                        <!-- Varian Suka-suka Selector -->
+                        <div class="flex flex-col gap-3">
+                            <label class="text-[#181511] dark:text-white text-sm font-bold">Varian Suka-suka (Pilih
+                                Isi)</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input checked="" class="peer sr-only" name="variant" type="radio" />
+                                    <div
+                                        class="p-3 rounded-lg border border-[#e6e2de] dark:border-[#3a342e] peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/10 transition-all flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded bg-[#f4f3f0] dark:bg-[#2c241b] bg-cover bg-center"
+                                            data-alt="Variant A tea selection"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCy3mVpR-R2rqRzT5a5gsWbMY44xQp50iU8pkQN7BGYD3-380a-yH429nM9IOOdqhO5MzGtZgqlC_1PW-Jr4tlu-Mifxzz8RLrcmVOMeh11vzYu9FHJWxCanQNaxwUxaDJsRzhTPP5d_995Mu2vLWDeCiiWMyAoxt2AKoCWuFUisgFybvb8UT83xKzkxfgoWgz5N8izIhjiWLL_DaIGvEVnAt-RrIdsymV5_7U_cDwJ_z6GlXoD7UTQro4YspoOccx1L5nSETY0fnI");'>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-[#181511] dark:text-white">Tea &amp;
+                                                Honey</div>
+                                            <div class="text-xs text-[#897861] dark:text-[#a69680]">+ Rp 0</div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input class="peer sr-only" name="variant" type="radio" />
+                                    <div
+                                        class="p-3 rounded-lg border border-[#e6e2de] dark:border-[#3a342e] peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/10 transition-all flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded bg-[#f4f3f0] dark:bg-[#2c241b] bg-cover bg-center"
+                                            data-alt="Variant B coffee beans"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVu9VSmghzsB6EbdXxAJNUAGf0j-lm72VdCh9fR1poSdqh5J_fD7nR5DF4VkdIwFpgkcQG38C4Ru0FhbihUomM7ToyST9oulvbbDProMsTX5TbPAoz_XtoH1LKHU9DWV8-OIwvmg0XpeXs4PgDhY-Ex6OUC1DHXQFz6ICT-XtjjMgkyFT12hZMIRJfjT2h0WFdHsf84sgyXKwcrQqFy8wG71QDda0r505g-RT76JiRi7zu1Ehoylk7UDNDRV8BLdrB8y9Rwl7FJI8");'>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-[#181511] dark:text-white">Coffee
+                                                Beans</div>
+                                            <div class="text-xs text-[#897861] dark:text-[#a69680]">+ Rp 25.000</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Quantity -->
+                        <div class="flex flex-col gap-3">
+                            <label class="text-[#181511] dark:text-white text-sm font-bold">Quantity</label>
+                            <div
+                                class="flex items-center w-32 border border-[#e6e2de] dark:border-[#3a342e] rounded-lg bg-white dark:bg-[#1a140e]">
+                                <button
+                                    class="w-10 h-10 flex items-center justify-center text-[#181511] dark:text-white hover:bg-gray-50 dark:hover:bg-[#2c241b] rounded-l-lg transition-colors">
+                                    <span class="material-symbols-outlined text-sm">remove</span>
+                                </button>
+                                <input
+                                    class="flex-1 w-full text-center border-none focus:ring-0 p-0 text-sm font-medium bg-transparent dark:text-white"
+                                    readonly="" type="text" value="1" />
+                                <button
+                                    class="w-10 h-10 flex items-center justify-center text-[#181511] dark:text-white hover:bg-gray-50 dark:hover:bg-[#2c241b] rounded-r-lg transition-colors">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col gap-3 mt-4">
+                            <button
+                                class="flex w-full items-center justify-center gap-3 rounded-lg h-12 bg-primary text-white text-base font-bold leading-normal hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                                <span class="material-symbols-outlined">shopping_bag</span>
+                                Add to Cart
+                            </button>
+                            <a class="flex w-full items-center justify-center gap-3 rounded-lg h-12 bg-[#25D366] text-white text-base font-bold leading-normal hover:bg-[#20bd5a] transition-colors shadow-sm"
+                                href="#">
+                                <svg class="w-5 h-5 fill-current" viewbox="0 0 448 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+                                    </path>
+                                </svg>
+                                Pesan via WhatsApp
+                            </a>
+                        </div>
+                        <!-- Shipping Info -->
+                        <div class="mt-4 p-4 bg-[#f4f3f0] dark:bg-[#2c241b] rounded-lg flex gap-3 items-start">
+                            <div class="text-primary mt-0.5">
+                                <span class="material-symbols-outlined text-[20px]">local_shipping</span>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-[#181511] dark:text-white">Free Shipping on orders
+                                    over Rp 750k</h4>
+                                <p class="text-xs text-[#897861] dark:text-[#a69680] mt-1">Estimasi pengiriman 2-3 hari
+                                    kerja untuk wilayah Jabodetabek.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Products Title -->
+                <div class="px-4 pt-8 pb-4 border-t border-[#e6e2de] dark:border-[#3a342e] mt-8">
+                    <h3 class="text-[#181511] dark:text-white text-xl font-bold">You Might Also Like</h3>
+                </div>
+                <!-- Related Products Grid -->
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 px-4 pb-12">
+                    <div class="flex flex-col gap-3 group cursor-pointer">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden"
+                            data-alt="Rustic wooden box hamper"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxdqHnENPvrubDs471Y7NBHCh0zWq6BO-sL_ycRxI2RkydkLCyIb3TQurz2Goo1SqyN7VLQ2tyyFHzOiUVYic6q3_5Y_wwCAHNbqykV7xCnB594h3Ux0bV--vag1cRZg-LOGUTLI2HyHtPp9jMt8GGWcxKD7x7vENgHhrJAzyxFOEcBVHkW65ddaIcl0zvO4ew1jD08DIdlxEmKse1HOgtR4LvljqxWApqR2EY1Ammw1fEYk98SOQhQN9Z5h_pCnqOdmEngDsczvg");'>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4 class="text-[#181511] dark:text-white font-medium text-sm truncate">Rustic Wooden
+                                Delight</h4>
+                            <span class="text-[#897861] dark:text-[#a69680] text-sm font-bold">Rp 350.000</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group cursor-pointer">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden"
+                            data-alt="Small pouch gift set with dried flowers"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAHLuDdA2Bue-eOcstTfgbBTVTMvM0J6m4kAk3I64q-hZ5ZxPJfijk_wG9wo51A2zyAL3I6hTpPzTyxOej2_kwbtJRyhFWzNHD9o5rTRMDAHLiLGf32uJMw8yrDXnze-sxj5reVlghh9WBtvvk-uk5BpvxHEQbHACrvZFoH2bDOVq0JtqDV8VdPl86rc7CajXIPtjMOeyahKo0BwSTf48UOnpZp4ub0lGfK6XzHFcNi2a_oUbXsaV_H6nL-4rhAX5K3bZtuLOemFQY");'>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4 class="text-[#181511] dark:text-white font-medium text-sm truncate">Petite Floral Pouch
+                            </h4>
+                            <span class="text-[#897861] dark:text-[#a69680] text-sm font-bold">Rp 125.000</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group cursor-pointer">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden"
+                            data-alt="Coffee lover hamper kit"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWnBrNyzs19ntfu-HRl5o7ghGaAhRF7kk-o4lTetk_ppmq8U1bV7AXdH2X_szuHfJQF--VNaSahboc0synJnipFz4QdqeQwKDO7CSiNCT6W3qzk5e1dLFX1igHa1LzVbmbF4NAtHHSdZ9lf-OkITY9RleOVeubNWWNLtHfAQLNU-yo6uvPqNf2ocitiRQUyumdxz6UNpGodg0tffQbwDKo0LJ1gWLMFrzIIvJnedYhvE-VgiHT-gaKx0QPwqrcBj07wMLteN7l6x0");'>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4 class="text-[#181511] dark:text-white font-medium text-sm truncate">Morning Brew Kit
+                            </h4>
+                            <span class="text-[#897861] dark:text-[#a69680] text-sm font-bold">Rp 275.000</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 group cursor-pointer">
+                        <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden"
+                            data-alt="Wellness spa set gift box"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdEoQ8A9-qAxxZ644Q8uyL5dROFelwjAKpXIt7aPcNPm4oMuIVXpRsYHZ6LqKW1VLdveJ3KIyqfuRFJkolGLYGD53tHfA_FwpHXuNrheER7teEkCqMQ6rqbRre7X_ICvTHyVSwSkHVDO6jvcdsSpxkBBMqfL-7EaFgNKpIK9w581o9qDb2v1k-JJre9hKL0skb83Mu-ZmqTPYzOhwZvq9uIdi6RQ1Lqj72RzRClcH_uvh22HWY6jSVZ9Ms68ph7L4wWQgzqbp38hU");'>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h4 class="text-[#181511] dark:text-white font-medium text-sm truncate">Zen Spa Collection
+                            </h4>
+                            <span class="text-[#897861] dark:text-[#a69680] text-sm font-bold">Rp 550.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Footer -->
+    <footer class="bg-white dark:bg-[#1a140e] border-t border-[#f4f3f0] dark:border-[#3a342e] py-8">
+        <div class="layout-container px-10 flex justify-center">
+            <div class="w-full max-w-[960px] flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="size-6 text-primary">
+                        <span class="material-symbols-outlined text-[24px]">redeem</span>
+                    </div>
+                    <span class="text-[#181511] dark:text-white font-bold text-lg">Poffi Store</span>
+                </div>
+                <div class="text-[#897861] dark:text-[#a69680] text-sm">
+                    © 2024 Poffi Store. All rights reserved.
+                </div>
+                <div class="flex gap-4">
+                    <a class="text-[#897861] dark:text-[#a69680] hover:text-primary transition-colors" href="#"><span
+                            class="material-symbols-outlined">social_leaderboard</span></a>
+                    <a class="text-[#897861] dark:text-[#a69680] hover:text-primary transition-colors" href="#"><span
+                            class="material-symbols-outlined">photo_camera</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

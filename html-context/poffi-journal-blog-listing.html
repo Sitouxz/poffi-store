@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Poffi Journal - Blog Listing</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@300..800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec8e13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221a10",
+                        "text-main": "#181511",
+                        "text-muted": "#897861",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main dark:text-background-light font-display antialiased overflow-x-hidden min-h-screen flex flex-col">
+    <!-- TopNavBar -->
+    <header
+        class="sticky top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#f4f3f0] dark:border-[#3a352f]">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-10 py-3">
+            <div class="flex items-center justify-between gap-4">
+                <!-- Logo & Nav -->
+                <div class="flex items-center gap-8 lg:gap-12">
+                    <a class="flex items-center gap-3 text-text-main dark:text-white group" href="#">
+                        <div class="w-8 h-8 text-primary transition-transform group-hover:scale-110">
+                            <svg class="w-full h-full" fill="none" viewbox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"
+                                    fill="currentColor"></path>
+                                <path clip-rule="evenodd"
+                                    d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z"
+                                    fill="currentColor" fill-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold leading-tight tracking-[-0.015em] font-display">Poffi</h2>
+                    </a>
+                    <nav class="hidden md:flex items-center gap-8">
+                        <a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                            href="#">Shop</a>
+                        <a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                            href="#">Hampers</a>
+                        <a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-0.5"
+                            href="#">Journal</a>
+                        <a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                            href="#">About</a>
+                        <a class="text-text-main dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                            href="#">Contact</a>
+                    </nav>
+                </div>
+                <!-- Actions -->
+                <div class="flex flex-1 justify-end gap-4 sm:gap-6">
+                    <label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+                        <div
+                            class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm bg-[#f4f3f0] dark:bg-[#3a352f] overflow-hidden focus-within:ring-2 focus-within:ring-primary/50 transition-shadow">
+                            <div class="text-text-muted flex items-center justify-center pl-4 pr-2">
+                                <span class="material-symbols-outlined text-[20px]">search</span>
+                            </div>
+                            <input
+                                class="w-full h-full bg-transparent border-none text-text-main dark:text-white placeholder:text-text-muted focus:ring-0 text-sm font-normal font-body"
+                                placeholder="Search..." />
+                        </div>
+                    </label>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex items-center justify-center rounded-xl h-10 w-10 bg-[#f4f3f0] dark:bg-[#3a352f] hover:bg-[#eae8e4] dark:hover:bg-[#4a453f] text-text-main dark:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                        </button>
+                        <button
+                            class="flex items-center justify-center rounded-xl h-10 w-10 bg-[#f4f3f0] dark:bg-[#3a352f] hover:bg-[#eae8e4] dark:hover:bg-[#4a453f] text-text-main dark:text-white transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">account_circle</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center w-full px-4 sm:px-10 py-8 sm:py-12">
+        <div class="w-full max-w-[1100px] flex flex-col gap-10">
+            <!-- Page Heading -->
+            <div class="flex flex-col gap-6 items-center text-center">
+                <div class="flex flex-col gap-3 max-w-2xl">
+                    <h1
+                        class="text-text-main dark:text-white text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                        Poffi Journal</h1>
+                    <p
+                        class="text-text-muted dark:text-gray-400 text-lg md:text-xl font-normal leading-relaxed font-body">
+                        Inspirasi kado, tips hampers, dan cerita seru seputar gifting. Temukan cara terbaik menyampaikan
+                        kasih sayang melalui hadiah.
+                    </p>
+                </div>
+            </div>
+            <!-- Chips / Filters -->
+            <div class="w-full overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+                <div class="flex items-center justify-center min-w-max gap-3">
+                    <button
+                        class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-primary text-white px-5 transition-transform hover:scale-105 active:scale-95 shadow-md shadow-primary/20">
+                        <p class="text-sm font-bold leading-normal">All Posts</p>
+                    </button>
+                    <button
+                        class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-[#2d261e] border border-[#e6e0d9] dark:border-[#3a352f] px-5 hover:bg-[#fcfbf9] dark:hover:bg-[#3a352f] transition-all hover:border-primary/50">
+                        <p class="text-text-main dark:text-gray-300 text-sm font-medium leading-normal">Gifting Ideas
+                        </p>
+                    </button>
+                    <button
+                        class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-[#2d261e] border border-[#e6e0d9] dark:border-[#3a352f] px-5 hover:bg-[#fcfbf9] dark:hover:bg-[#3a352f] transition-all hover:border-primary/50">
+                        <p class="text-text-main dark:text-gray-300 text-sm font-medium leading-normal">Occasions</p>
+                    </button>
+                    <button
+                        class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-[#2d261e] border border-[#e6e0d9] dark:border-[#3a352f] px-5 hover:bg-[#fcfbf9] dark:hover:bg-[#3a352f] transition-all hover:border-primary/50">
+                        <p class="text-text-main dark:text-gray-300 text-sm font-medium leading-normal">Tips &amp;
+                            Tricks</p>
+                    </button>
+                    <button
+                        class="flex h-10 items-center justify-center gap-x-2 rounded-xl bg-white dark:bg-[#2d261e] border border-[#e6e0d9] dark:border-[#3a352f] px-5 hover:bg-[#fcfbf9] dark:hover:bg-[#3a352f] transition-all hover:border-primary/50">
+                        <p class="text-text-main dark:text-gray-300 text-sm font-medium leading-normal">Behind the
+                            Scenes</p>
+                    </button>
+                </div>
+            </div>
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+                <!-- Blog Card 1 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Beautifully wrapped gift box with pink ribbon"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDMVA536GTboh3VV_xlUwKDv_j9GiYPL2GMjkxMiKOBvyaeE-jCrmN4t0f1wfbZEhOdBg7qZx41K-uG4pI9OZSWAmYRrnymf-KLbgaklGoNaKE_kE6wg0neSG5I-Kmd2wH07ZH8tf3xFNHrQvD6lHJ4HUC10Sx5VZhG1cMBfaid2x9hqft6SF3blEh4rC_hgw08e0ZJC-14bnp9Kf0lap87AhnJm9Hu_hG1L9kgjZsK45CEAaI3PMiSTnT8UBgj0qh2DDL6yYFA4js");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Gifting
+                                Ideas</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            5 Ide Kado Anniversary Anti-Mainstream
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Bosan dengan bunga dan cokelat? Cek inspirasi kado unik yang bikin pasangan makin sayang dan
+                            momen anniversary jadi tak terlupakan.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- Blog Card 2 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Group of friends celebrating graduation with flowers"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAufZeJIcPIbfdaZVNgyMNQqH-0zxVm-BowywC-qbppbfyyDKX1y6h9fjG_EPkhXWVa4IQkb7lBQHEYA19cHXK4HsDDDA4oIgX1VYAQm4880x_aaPVFeMwk0dbImaRFgClpLcFLg-x0cjpuJiTTwpmOIOpNITa5ZV3PuoZM1-KcZfUHgsLsVs1tm5l_MzlYnPK4UJHLd5s_5iJGxD5PdwVSkpYUCZK4vU_6DukoGPJpEBV3zS9FsuCZuZVjnmBkgVlUwpp9RxTv_A4");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Tips
+                                &amp; Tricks</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            Tips Memilih Hampers Wisuda yang Berkesan
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Wisuda adalah momen spesial. Jangan salah pilih hampers! Simak panduan memilih isi hampers
+                            yang bermanfaat dan aesthetic.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- Blog Card 3 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Handmade greeting card with dried flowers"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDcEdLkMj6hQ5rTslItglTIHubP1OyB8uws1RT2hHDu8gn0Te15A1wMq3JImRxuZxsM-xlkuqqC54ejbQDaxWQCG7w9hAoQ0zTPatR9NZUR_93Cc3T8lqitceJwhxlbpf-0eJrFApR9jiIz4FXWIQ3edMys9jkeuptsIYlIWa4O2di74lyNQavbGbfpBRivQ3tTcYpt1n4sPttTJFtN3j3aoRezdb6XDgoezbiDGQG7TY8USNd2xpTa-f9INIohXQcsNkqLQDE9M9U");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">DIY
+                                Corner</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            DIY Kartu Ucapan Unik &amp; Personal
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Sentuhan personal selalu lebih bermakna. Tutorial langkah demi langkah membuat kartu ucapan
+                            dengan bahan daur ulang.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- Blog Card 4 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Elegant wedding gift setup on a wooden table"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuATRkv73avLtMRjmX9vGYG-xiZNLkfaHXTM8S04jCsRxv31kcV8uP491eGXOe0zh2vImc3tx_4VuNIaaK3vRcjQ8QuXD3lohTyXCsIUvJ-wQUjfOUm1wOKbkElenkMip_LrxGaKPbNokIFU5ERDTML6HRzUvDxk5RhBamUMs2giVcnLtLPJKJ5jyNyhIxLyza5CkG9Ka0jH5hXo0AdNHIS5Enp-rw65OnNHgwSXn9LGX2L-owpET6Aaq_5WHTuL2p-ZiePAcLuNQgU");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Occasions</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            Tren Kado Pernikahan 2024
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Dari peralatan rumah tangga pintar hingga pengalaman liburan, inilah tren kado pernikahan
+                            yang sedang hits tahun ini.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- Blog Card 5 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Open hamper box revealing various goodies inside"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD4VNNSLUUNaNrLeTwHBwN9FXOhGeGHphsWOid3y2SK635_2ViHpmkwAuh3jbsSHE5jULqZCwHkoVVqrS9Gm91oja6tKeE6n0GaxOHAq8ktsYbn3SWofZH2d4R7AE80sGjJXwj4q-Zua0Y4LAd-7PcXkpZLNu4XWmYSrzK2A5Va1QnT3EupsMifW8AWIKLmQIV0pgUNzb74IE6eqiy4b-t4y24Ca1DilkyKQwxBzaMKgH4AljAyWUK8PSYLIjA9CKAD7ME0-78RS_k");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Behind
+                                the Scenes</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            Unboxing Hampers Lebaran Poffi
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Intip apa saja yang ada di dalam hampers spesial Lebaran kami. Dikurasi dengan hati-hati
+                            untuk kebahagiaan keluarga.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+                <!-- Blog Card 6 -->
+                <article class="flex flex-col gap-4 group cursor-pointer">
+                    <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-sm">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            data-alt="Hands holding a wrapped gift with affection"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAY4jTJTecslmsGfkIR32CWGiopUU3jbpO0Al_QIg6YZ5xCXFPqApMjCKaUhY_kDPnVRmZjpKWo5TF5ze-SLiyiOynP_XbKOVm7eYlxLDBRfAvJlOYG5o8vX303bNoxwqXcGZEzr306zlbKfNHu5xWsyV6M1i0WFN7QK9IpomQAVB0sHFcc1M-7I1UVxAgv49y7V3ioUR2ZTmdROjpgRXJFy16NFzExkSckCg_ynYuTfDXlVanoaou15WU8cxRDA1WHyzgM4eRo_As");'>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg">
+                            <span
+                                class="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Philosophy</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h3
+                            class="text-2xl font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                            Kenapa Gifting Itu Bahasa Cinta?
+                        </h3>
+                        <p class="text-text-muted dark:text-gray-400 font-body text-sm line-clamp-2 leading-relaxed">
+                            Lebih dari sekadar barang, memberi hadiah adalah cara komunikasi emosional. Pelajari
+                            psikologi di balik gifting.
+                        </p>
+                        <a class="inline-flex items-center gap-1 text-primary font-bold text-sm mt-1 hover:underline decoration-2 underline-offset-4"
+                            href="#">
+                            Read Article <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <!-- Pagination -->
+            <div class="flex items-center justify-center p-4 pt-8 border-t border-[#e6e0d9] dark:border-[#3a352f] mt-8">
+                <a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#3a352f] transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined text-text-main dark:text-white">chevron_left</span>
+                </a>
+                <a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-white rounded-full bg-primary shadow-lg shadow-primary/30 mx-1"
+                    href="#">1</a>
+                <a class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-text-main dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#3a352f] transition-colors mx-1"
+                    href="#">2</a>
+                <a class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-text-main dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#3a352f] transition-colors mx-1"
+                    href="#">3</a>
+                <span class="flex items-center justify-center size-10 text-text-muted">...</span>
+                <a class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-text-main dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#3a352f] transition-colors mx-1"
+                    href="#">8</a>
+                <a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-[#3a352f] transition-colors"
+                    href="#">
+                    <span class="material-symbols-outlined text-text-main dark:text-white">chevron_right</span>
+                </a>
+            </div>
+        </div>
+    </main>
+    <!-- Footer Simple -->
+    <footer class="bg-white dark:bg-[#1a140c] py-12 border-t border-[#f4f3f0] dark:border-[#3a352f]">
+        <div class="max-w-[1280px] mx-auto px-10 text-center flex flex-col gap-6">
+            <div class="flex items-center justify-center gap-2 text-text-main dark:text-white">
+                <div class="size-6 text-primary">
+                    <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.263 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <span class="font-bold text-lg font-display">Poffi</span>
+            </div>
+            <p class="text-text-muted dark:text-gray-500 font-body text-sm">© 2024 Poffi Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

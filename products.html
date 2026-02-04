@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Produk - Poffi Store</title>
+    <meta name="description"
+        content="Curated earthy gifts for your loved ones. Browse our collection of frames, hampers, and gift sets.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Page-specific styles for Product Catalog */
+        .catalog-layout {
+            display: flex;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Sidebar */
+        .catalog-sidebar {
+            display: none;
+            width: 288px;
+            flex-shrink: 0;
+            padding: var(--space-6);
+            border-right: 1px solid var(--color-border-light);
+            height: calc(100vh - var(--header-height));
+            position: sticky;
+            top: var(--header-height);
+            overflow-y: auto;
+        }
+
+        @media (min-width: 1024px) {
+            .catalog-sidebar {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-6);
+            }
+        }
+
+        .sidebar-title {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            margin-bottom: var(--space-1);
+        }
+
+        .sidebar-subtitle {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .category-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-text-main);
+            transition: all var(--transition-fast);
+        }
+
+        .category-link:hover {
+            background-color: var(--color-surface-light);
+        }
+
+        .category-link.active {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+            font-weight: var(--font-bold);
+        }
+
+        .category-link .material-symbols-outlined {
+            font-size: 24px;
+            color: var(--color-text-muted);
+        }
+
+        .category-link.active .material-symbols-outlined,
+        .category-link:hover .material-symbols-outlined {
+            color: var(--color-primary);
+        }
+
+        .sidebar-cta {
+            margin-top: auto;
+            padding: var(--space-4);
+            background-color: var(--color-surface-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .sidebar-cta-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(196, 179, 154, 0.3);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+        }
+
+        /* Main Content */
+        .catalog-main {
+            flex: 1;
+            padding: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+
+        @media (min-width: 768px) {
+            .catalog-main {
+                padding: var(--space-10);
+            }
+        }
+
+        .catalog-header {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        @media (min-width: 768px) {
+            .catalog-header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+            }
+        }
+
+        .catalog-title {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-extrabold);
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .catalog-title {
+                font-size: var(--text-5xl);
+            }
+        }
+
+        .catalog-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-text-muted);
+            font-weight: var(--font-medium);
+        }
+
+        /* Filter Chips */
+        .filter-chips {
+            display: flex;
+            gap: var(--space-2);
+            overflow-x: auto;
+            padding-bottom: var(--space-2);
+        }
+
+        .filter-chip {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            height: 36px;
+            padding: 0 var(--space-4);
+            background-color: var(--color-surface-light);
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-text-main);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-chip:hover {
+            background-color: var(--color-border-light);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Product Card Variant */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-surface-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: all var(--transition-normal);
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary-light);
+        }
+
+        .product-card-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .product-card-image .bg-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-card-image .bg-image {
+            transform: scale(1.05);
+        }
+
+        .product-card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+        }
+
+        .product-card-favorite {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .product-card:hover .product-card-favorite {
+            opacity: 1;
+        }
+
+        .product-card-body {
+            padding: var(--space-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            flex: 1;
+        }
+
+        .product-card-title {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            line-height: 1.3;
+        }
+
+        .product-card-description {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .product-card-price {
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
+            color: var(--color-text-muted);
+        }
+
+        .quick-add-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-2) var(--space-4);
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .quick-add-btn:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-10) 0;
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-full);
+            background-color: var(--color-surface-light);
+            border: none;
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-text-main);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .pagination-btn:hover {
+            background-color: var(--color-border-light);
+        }
+
+        .pagination-btn.active {
+            background-color: var(--color-primary);
+            color: white;
+            font-weight: var(--font-bold);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app-header"></div>
+
+    <main class="catalog-layout">
+        <!-- Sidebar -->
+        <aside class="catalog-sidebar">
+            <div>
+                <h2 class="sidebar-title">Categories</h2>
+                <p class="sidebar-subtitle">Browse by type</p>
+            </div>
+
+            <nav class="category-list">
+                <a href="#" class="category-link active">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    <span>All Products</span>
+                </a>
+                <a href="#" class="category-link">
+                    <span class="material-symbols-outlined">card_giftcard</span>
+                    <span>Graduation Hampers</span>
+                </a>
+                <a href="#" class="category-link">
+                    <span class="material-symbols-outlined">sentiment_satisfied</span>
+                    <span>Doll Gift Sets</span>
+                </a>
+                <a href="#" class="category-link">
+                    <span class="material-symbols-outlined">crop_square</span>
+                    <span>Wooden Frames</span>
+                </a>
+                <a href="#" class="category-link">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    <span>Custom Bundles</span>
+                </a>
+                <a href="#" class="category-link">
+                    <span class="material-symbols-outlined">local_florist</span>
+                    <span>Dried Flowers</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-cta">
+                <div class="sidebar-cta-icon">
+                    <span class="material-symbols-outlined">redeem</span>
+                </div>
+                <div>
+                    <h3
+                        style="font-size: var(--text-sm); font-weight: var(--font-bold); margin-bottom: var(--space-1);">
+                        Need Custom Gift?</h3>
+                    <p style="font-size: var(--text-xs); color: var(--color-text-muted);">Contact us for bulk orders and
+                        corporate gifting.</p>
+                </div>
+                <button class="btn btn-secondary"
+                    style="font-size: var(--text-xs); padding: var(--space-2) var(--space-4);">Chat Support</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="catalog-main">
+            <!-- Header -->
+            <div class="catalog-header">
+                <div>
+                    <h1 class="catalog-title">Katalog Produk</h1>
+                    <p class="catalog-subtitle">Curated earthy gifts for your loved ones.</p>
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="filter-chips">
+                    <button class="filter-chip">
+                        <span>Sort: Recommended</span>
+                        <span class="material-symbols-outlined" style="font-size: 18px;">expand_more</span>
+                    </button>
+                    <button class="filter-chip">
+                        <span>Price</span>
+                        <span class="material-symbols-outlined" style="font-size: 18px;">unfold_more</span>
+                    </button>
+                    <button class="filter-chip">
+                        <span>Best Sellers</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <span class="badge badge-primary product-card-badge">New</span>
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFviCbH_FGlKSv_5AbCnBOvXve6BRei6W2qHJa0L36iM9cbAbs7D61VYiPAW0Qng_FyPMutFn-9anjcIBWtu-v0IUOZ2D8mM7a9qQGUWezfFZDmmgtPqorwYrhzvUAEuV26VFvOMUJkPcwUFQ_Inrc0JG5nPt_rgWghtHJDadHXV50UNCogiv50O2ywrUcM5hftBiDj5FMATHv0ALV7heZwuLimpx2pynE9_MilTl8cOuhGoApJPVREqURV6y-fQG0AuQmXD9DRR4');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Classic Wooden Frame (A4)</h3>
+                        <p class="product-card-description">Hand-crafted oak wood frame perfect for graduation
+                            certificates or family portraits.</p>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">Rp 129.000</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 2 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCl29_Ws0kH9z3gK2YPDDWZzZ63J7v0RsIGj6DJuJzGbszvi3JC9TVGEnpkj01ti7_XUY1Hkm8E74-aChaba7AYGWjcVylSlMVz9xczsvEorZJ-8LKlAVc9yf58so9sQ2E6F8Ghfm2ZvFLvTfK1qCJkcZClkAGZMsZ-MKXEA9jff-FOczSrUYtdrBXev4L-8NDJ3KBRGygzAhBRU9vgSILsVHGGHNUnyUIGTAotyoNx3YCk_YK4swuCL-UIYVpcQEdkKcVVeC2NRHY');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Premium Graduation Hamper</h3>
+                        <p class="product-card-description">Includes a teddy bear, chocolate bouquet, and custom
+                            greeting card.</p>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">Rp 350.000</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 3 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <span class="badge badge-primary product-card-badge">Best Seller</span>
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBPg2opQ9kp27W9gswu3Cye_7-4sQuRn_D189BpYRcnzv9u0bcXm5krRGXU1qLdYAWZFNlzAU8Bb-sMVAGvsFHHud7dEiN8D-pPyg_OkBRl36DzvDF47lKYWp3Hs-gfkgPfQx5oIL7JQI2-mAeso1VL3S4HYDaDJ7RKvZwRzTDPxeQJjh7VgOszQ8WlcvWGPz_CIeIJ3Pcns-3TvIXAm8m5LFZ-1VmGUxcP6c4WynVOxmUedx__OOKJRFeunZ_nLOXtx1nSUE9Yo4');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Soft Bear Plushie</h3>
+                        <p class="product-card-description">Ultra-soft hypoallergenic plush toy available in beige and
+                            cream.</p>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">Rp 89.000</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 4 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDbkwDRBNjOrZXn0oTId3tUVLFhHkSPb13giAYLv6DzVy8xJjlUt0xsJRRKlYksaru0nZj-R39s_Hz7xisWl6QkpJnntalDEXM2T69ZdTehmr6UGMAfoGAZ8L59g7vjxpNW310QRHlywkdQlX7dwSPZd66GTQX0RgSiib8gNdOKhU11J_YPyvpS5fOtsjutASnGnlftEpqr09YkZnElg4uMkOSyG-0nkZ5z8mq8Gp3ExSU0Sopi-pPwryBAXfumvluuq1WO6PjjJc0');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Rustic Dried Bouquet</h3>
+                        <p class="product-card-description">Everlasting dried flower arrangement in earthy tones.</p>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">Rp 175.000</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 5 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <span class="badge badge-secondary product-card-badge">Sale</span>
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2nC5R9H_8AuFldBtzS216m2JlVOtUQGcQ7ijJ8-CEc-4IwuC_19SP2DsbbYuJCv4yqWdE5JOuQ_PkoeE6kwQdJWgg-ndHCs3U9fhuApNCw7BrmrHlnazILYC-cHxr9QgAszZbd79wAMYbcnU9rJ3PpethpRskkNPDaf3t59yeoKQ7xhS5uJyXsOtapuSi3DzBWPapfq_cw88mPn8dtYpPub31fvk2ImgCK8V9OGIZj1nNiYWldfCsTvkyCgV3MqCKIygOVQ0ehhc');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Scented Candle Set</h3>
+                        <p class="product-card-description">Vanilla bean and sandalwood scented soy candles.</p>
+                        <div class="product-card-footer">
+                            <div>
+                                <span
+                                    style="font-size: var(--text-xs); color: var(--color-text-muted); text-decoration: line-through; display: block;">Rp
+                                    150.000</span>
+                                <span class="product-card-price">Rp 120.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Product 6 -->
+                <a href="product.html" class="product-card">
+                    <div class="product-card-image">
+                        <div class="bg-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-NzA0mEWbXcEuCg8jncimL9YDhlcPVePeaSXjQE340LFH20DnCdCXCCtPXKLiBmGtJ_kioen00MRCIFRaGghkpIxLpZDY4d4-seib50QbqhNQ7zfVUwhXPtLHVBitzgDuPk0GhDEGfmj7CRJ5mxyvrE-H0ugrEnh0wYdkzMVEksAoUYAeE8iU3HTZH9kKkqvcwvWCHYTwQkYcHBeVdfsCNkQf9_kpgt1qFklonNGuj3w8NLSXimj_CjY05iAsz7kYp8u7DymtHsU');">
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-card-title">Artisan Ceramic Mug</h3>
+                        <p class="product-card-description">Hand-thrown ceramic mug with speckle glaze finish.</p>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">Rp 95.000</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="pagination" aria-label="Product pagination">
+                <button class="pagination-btn" aria-label="Previous page">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button class="pagination-btn active" aria-current="page">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn" aria-label="Next page">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </nav>
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="layout.js"></script>
+    <script>
+        injectHeader();
+        injectFooter();
+    </script>
+</body>
+
+</html>

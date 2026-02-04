@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Poffi Store - Core Product Catalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec8e13",
+                        "accent-dark": "#8A7356",
+                        "accent-light": "#C4B39A",
+                        "background-light": "#fcfaf8",
+                        "background-dark": "#221a10",
+                        "surface-light": "#f3eee7",
+                        "surface-dark": "#2d2419",
+                        "text-main": "#1b150d",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-[#e0e0e0] min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Top Navigation -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-[#f3eee7] dark:border-surface-dark bg-background-light dark:bg-background-dark px-10 py-3">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-4 text-text-main dark:text-white">
+                <div class="size-8 rounded-full bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-[20px]">storefront</span>
+                </div>
+                <h2 class="text-text-main dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Poffi
+                    Store</h2>
+            </div>
+            <div class="hidden md:flex items-center gap-9">
+                <a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Home</a>
+                <a class="text-primary text-sm font-bold leading-normal" href="#">Catalog</a>
+                <a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">About Us</a>
+                <a class="text-text-main dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal"
+                    href="#">Contact</a>
+            </div>
+        </div>
+        <div class="flex flex-1 justify-end gap-6 items-center">
+            <label class="hidden lg:flex flex-col min-w-40 h-10 max-w-64">
+                <div class="flex w-full flex-1 items-stretch rounded-full h-full bg-surface-light dark:bg-surface-dark">
+                    <div
+                        class="text-accent-dark dark:text-accent-light flex border-none items-center justify-center pl-4 rounded-l-full border-r-0">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </div>
+                    <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-text-main dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent focus:border-none h-full placeholder:text-accent-light px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal"
+                        placeholder="Search gifts..." value="" />
+                </div>
+            </label>
+            <div class="flex gap-2">
+                <button
+                    class="flex items-center justify-center rounded-full size-10 bg-surface-light dark:bg-surface-dark text-text-main dark:text-white hover:bg-accent-light/20 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                </button>
+                <button
+                    class="flex items-center justify-center rounded-full size-10 bg-surface-light dark:bg-surface-dark text-text-main dark:text-white hover:bg-accent-light/20 transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">account_circle</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="flex flex-1 w-full max-w-[1440px] mx-auto">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="hidden lg:flex w-72 flex-col gap-6 p-6 border-r border-[#f3eee7] dark:border-surface-dark h-[calc(100vh-65px)] sticky top-[65px] overflow-y-auto">
+            <div class="flex flex-col">
+                <h1 class="text-text-main dark:text-white text-lg font-bold mb-1">Categories</h1>
+                <p class="text-accent-dark dark:text-accent-light text-sm font-normal">Browse by type</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary" href="#">
+                    <span class="material-symbols-outlined text-[24px]">grid_view</span>
+                    <p class="text-sm font-bold">All Products</p>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-accent-dark group-hover:text-primary transition-colors">card_giftcard</span>
+                    <p class="text-text-main dark:text-gray-300 text-sm font-medium">Graduation Hampers</p>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-accent-dark group-hover:text-primary transition-colors">sentiment_satisfied</span>
+                    <p class="text-text-main dark:text-gray-300 text-sm font-medium">Doll Gift Sets</p>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-accent-dark group-hover:text-primary transition-colors">crop_square</span>
+                    <p class="text-text-main dark:text-gray-300 text-sm font-medium">Wooden Frames</p>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-accent-dark group-hover:text-primary transition-colors">auto_awesome</span>
+                    <p class="text-text-main dark:text-gray-300 text-sm font-medium">Custom Bundles</p>
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-light dark:hover:bg-surface-dark transition-colors group"
+                    href="#">
+                    <span
+                        class="material-symbols-outlined text-[24px] text-accent-dark group-hover:text-primary transition-colors">local_florist</span>
+                    <p class="text-text-main dark:text-gray-300 text-sm font-medium">Dried Flowers</p>
+                </a>
+            </div>
+            <div class="mt-8 p-4 bg-surface-light dark:bg-surface-dark rounded-xl flex flex-col gap-3">
+                <div
+                    class="size-10 bg-accent-light/30 rounded-full flex items-center justify-center text-accent-dark dark:text-accent-light">
+                    <span class="material-symbols-outlined">redeem</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm mb-1 dark:text-white">Need Custom Gift?</h3>
+                    <p class="text-xs text-accent-dark dark:text-accent-light">Contact us for bulk orders and corporate
+                        gifting.</p>
+                </div>
+                <button
+                    class="w-full py-2 text-xs font-bold text-primary border border-primary rounded-lg hover:bg-primary hover:text-white transition-colors">Chat
+                    Support</button>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10 flex flex-col gap-8">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="flex flex-col gap-2">
+                    <h1 class="text-text-main dark:text-white text-4xl md:text-5xl font-extrabold tracking-tight">
+                        Katalog Produk</h1>
+                    <p class="text-accent-dark dark:text-accent-light text-lg font-medium">Curated earthy gifts for your
+                        loved ones.</p>
+                </div>
+                <!-- Sort/Filter Chips -->
+                <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark pl-4 pr-3 hover:bg-accent-light/20 transition-colors">
+                        <span class="text-text-main dark:text-gray-200 text-sm font-medium">Sort: Recommended</span>
+                        <span class="material-symbols-outlined text-[18px]">expand_more</span>
+                    </button>
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark pl-4 pr-3 hover:bg-accent-light/20 transition-colors">
+                        <span class="text-text-main dark:text-gray-200 text-sm font-medium">Price</span>
+                        <span class="material-symbols-outlined text-[18px]">unfold_more</span>
+                    </button>
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-light dark:bg-surface-dark px-4 hover:bg-accent-light/20 transition-colors">
+                        <span class="text-text-main dark:text-gray-200 text-sm font-medium">Best Sellers</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 z-10 bg-accent-dark text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            New</div>
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Minimalist wooden photo frame on beige background"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFviCbH_FGlKSv_5AbCnBOvXve6BRei6W2qHJa0L36iM9cbAbs7D61VYiPAW0Qng_FyPMutFn-9anjcIBWtu-v0IUOZ2D8mM7a9qQGUWezfFZDmmgtPqorwYrhzvUAEuV26VFvOMUJkPcwUFQ_Inrc0JG5nPt_rgWghtHJDadHXV50UNCogiv50O2ywrUcM5hftBiDj5FMATHv0ALV7heZwuLimpx2pynE9_MilTl8cOuhGoApJPVREqURV6y-fQG0AuQmXD9DRR4");'>
+                        </div>
+                        <button
+                            class="absolute bottom-3 right-3 bg-white dark:bg-surface-light text-text-main p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Classic
+                                Wooden Frame (A4)</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Hand-crafted oak wood frame perfect for
+                                graduation certificates or family portraits.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 129.000</p>
+                            <button
+                                class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Luxury gift hamper box with ribbon"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCl29_Ws0kH9z3gK2YPDDWZzZ63J7v0RsIGj6DJuJzGbszvi3JC9TVGEnpkj01ti7_XUY1Hkm8E74-aChaba7AYGWjcVylSlMVz9xczsvEorZJ-8LKlAVc9yf58so9sQ2E6F8Ghfm2ZvFLvTfK1qCJkcZClkAGZMsZ-MKXEA9jff-FOczSrUYtdrBXev4L-8NDJ3KBRGygzAhBRU9vgSILsVHGGHNUnyUIGTAotyoNx3YCk_YK4swuCL-UIYVpcQEdkKcVVeC2NRHY");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Premium
+                                Graduation Hamper</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Includes a teddy bear, chocolate bouquet,
+                                and custom greeting card.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 350.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 z-10 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Best Seller</div>
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Cute plush doll sitting on a shelf"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBPg2opQ9kp27W9gswu3Cye_7-4sQuRn_D189BpYRcnzv9u0bcXm5krRGXU1qLdYAWZFNlzAU8Bb-sMVAGvsFHHud7dEiN8D-pPyg_OkBRl36DzvDF47lKYWp3Hs-gfkgPfQx5oIL7JQI2-mAeso1VL3S4HYDaDJ7RKvZwRzTDPxeQJjh7VgOszQ8WlcvWGPz_CIeIJ3Pcns-3TvIXAm8m5LFZ-1VmGUxcP6c4WynVOxmUedx__OOKJRFeunZ_nLOXtx1nSUE9Yo4");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Soft Bear
+                                Plushie</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Ultra-soft hypoallergenic plush toy
+                                available in beige and cream.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 89.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Dried flower bouquet in vase"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbkwDRBNjOrZXn0oTId3tUVLFhHkSPb13giAYLv6DzVy8xJjlUt0xsJRRKlYksaru0nZj-R39s_Hz7xisWl6QkpJnntalDEXM2T69ZdTehmr6UGMAfoGAZ8L59g7vjxpNW310QRHlywkdQlX7dwSPZd66GTQX0RgSiib8gNdOKhU11J_YPyvpS5fOtsjutASnGnlftEpqr09YkZnElg4uMkOSyG-0nkZ5z8mq8Gp3ExSU0Sopi-pPwryBAXfumvluuq1WO6PjjJc0");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Rustic Dried
+                                Bouquet</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Everlasting dried flower arrangement in
+                                earthy tones.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 175.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 z-10 bg-accent-light text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Sale</div>
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Aromatherapy candle set on wooden tray"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2nC5R9H_8AuFldBtzS216m2JlVOtUQGcQ7ijJ8-CEc-4IwuC_19SP2DsbbYuJCv4yqWdE5JOuQ_PkoeE6kwQdJWgg-ndHCs3U9fhuApNCw7BrmrHlnazILYC-cHxr9QgAszZbd79wAMYbcnU9rJ3PpethpRskkNPDaf3t59yeoKQ7xhS5uJyXsOtapuSi3DzBWPapfq_cw88mPn8dtYpPub31fvk2ImgCK8V9OGIZj1nNiYWldfCsTvkyCgV3MqCKIygOVQ0ehhc");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Scented
+                                Candle Set</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Vanilla bean and sandalwood scented soy
+                                candles.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-accent-light line-through">Rp 150.000</span>
+                                <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 120.000</p>
+                            </div>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Ceramic mug with coffee on table"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-NzA0mEWbXcEuCg8jncimL9YDhlcPVePeaSXjQE340LFH20DnCdCXCCtPXKLiBmGtJ_kioen00MRCIFRaGghkpIxLpZDY4d4-seib50QbqhNQ7zfVUwhXPtLHVBitzgDuPk0GhDEGfmj7CRJ5mxyvrE-H0ugrEnh0wYdkzMVEksAoUYAeE8iU3HTZH9kKkqvcwvWCHYTwQkYcHBeVdfsCNkQf9_kpgt1qFklonNGuj3w8NLSXimj_CjY05iAsz7kYp8u7DymtHsU");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Artisan
+                                Ceramic Mug</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Hand-thrown ceramic mug with speckle glaze
+                                finish.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 95.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Stack of notebooks with pens"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCyiV-yICvs2tT7zxNUC_kH6z5eWx9FYLAwfFY1t-SXjF_sIAjCRhfGuaGWBob1qwBXh5duCFrThPzRFJwS14WnGXK2BjFCH5SlKaNWIGJgo_EmocYDDDqrRuSalRNSnAyQ85tRfXdq4mOPt8vTnNe_39RvE3L1e9iQqXAqHd54ErX-CYgK0_axNMlxP4MfPFQS1nvzi72fgwXHL3CvhR9_dBfbu8W1CxinHnY8U-uDCymUQzzgbvntKgJryCWkr59Ut1wnbR6a6e0");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Journaling
+                                Starter Kit</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Includes A5 grid notebook, washi tapes,
+                                and gel pens.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 145.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Box of assorted cookies"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDiklGNXQ_bCqmunWW0hWWWopXzG9TV06VNrV32D4k_ywZTBbLMJpVtKnsrwGIjYexiz-bi0qQTI3fv4w8ZxvmZvKQ_qTdUJcTGUmTubCeg4t9SdqATkiS9Xpr6DCed2PcSgLFd4aOPexFH6t4aZw6NsZoAwBa92l87s2mf1ntNF76HI0S-eUF3VoCXXWSkCJrA-4YygoV83V4T3Bjev0_-8lxS3ndsHenC5u_KxLlc3YwIKgpEwJ0Ak_Rtzh6dA6eqQrDIswvz9aw");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Assorted
+                                Cookie Box</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Home-made soft baked cookies. Choice of 6
+                                flavors.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 75.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 9 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div
+                            class="absolute top-3 left-3 z-10 bg-accent-dark text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Limited</div>
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Tote bag canvas on hanger"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD7rd52-PasKLlJEuenu7y11bp8CS5l3WIJ1cDdQ5ZV5v8DjwyyP6ke4_QbSeP-9dhtWgP4H5hWi2pX_GbMhCVQTbR6xmzCDC-Rj1fQp-MotqJaMf2XCvILLPhmDHshY8NMNY9GMzb07Uhwlo2nhaU9Ev18Mt4v7CaGZqzLA2wU38k_Tcyakz_1jERBjG4I1PIgW285-27kNctJRS6TrkiLXqAP0S14W_-f2QOAZD_dIiY8ubu986kapv18uVW5KxEE90hCN0TUgLw");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Canvas Tote
+                                Bag</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Durable canvas tote with Poffi signature
+                                print.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 65.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 10 -->
+                <div
+                    class="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-transparent hover:border-primary/20">
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500"
+                            data-alt="Succulent plant in small pot"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaGNP_y2sramWGGq3YtVLkM_pocmVfdPHilhBGupBaf3xNOZsmE_pOfUcHfyO7uGrZNBT1BfpgIM7TvpXR0-XLHrpCQ2ed2XfWQSTLDbDmLgqxpnJY3tWCY-SL-WzBT0m5V-0wrzdOWH90V9QkR9lx0gOj3I4dsWoGoSqmLXyAFupieG0ignq7v80M4JhlnOYglvhI5dW4EFmOoTXReBU06R2bz9lrbGFVhFs8vJV4OjIBk2SIKttWz1EEUCP1YWRw2_mW_IpKm3I");'>
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 flex-1">
+                        <div class="flex-1">
+                            <h3 class="text-text-main dark:text-white text-lg font-bold leading-tight mb-1">Mini
+                                Succulent Gift</h3>
+                            <p class="text-accent-light text-sm line-clamp-2">Easy care plant in a decorative concrete
+                                pot.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-accent-dark dark:text-primary text-lg font-bold">Rp 45.000</p>
+                            <button
+                                class="bg-surface-light dark:bg-background-dark hover:bg-primary hover:text-white text-text-main dark:text-white text-sm font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                                Quick Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="flex justify-center mt-8 pb-10">
+                <div class="flex items-center gap-2">
+                    <button
+                        class="size-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark text-accent-dark dark:text-white hover:bg-accent-light/30 transition-colors">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                        class="size-10 flex items-center justify-center rounded-full bg-primary text-white font-bold">1</button>
+                    <button
+                        class="size-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark text-text-main dark:text-white font-medium hover:bg-accent-light/30 transition-colors">2</button>
+                    <button
+                        class="size-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark text-text-main dark:text-white font-medium hover:bg-accent-light/30 transition-colors">3</button>
+                    <button
+                        class="size-10 flex items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark text-accent-dark dark:text-white hover:bg-accent-light/30 transition-colors">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
